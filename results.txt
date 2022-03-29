@@ -1,36 +1,71 @@
-/Users/ivanbockov/tests_1/gc_50_5 13
-/Users/ivanbockov/tests_1/gc_4_1 2
+/Users/ivanbockov/tests_1/gc_50_5 11 *
+
+/Users/ivanbockov/tests_1/gc_4_1 2   *
+
 /Users/ivanbockov/tests_1/gc_50_3 9
-/Users/ivanbockov/tests_1/gc_20_9 11
-/Users/ivanbockov/tests_1/gc_20_7 10
-/Users/ivanbockov/tests_1/gc_100_5 23
-/Users/ivanbockov/tests_1/gc_20_1 4
-/Users/ivanbockov/tests_1/gc_100_3 15
-/Users/ivanbockov/tests_1/gc_70_9 35
-/Users/ivanbockov/tests_1/gc_1000_1 33
-/Users/ivanbockov/tests_1/gc_500_3 45
-/Users/ivanbockov/tests_1/gc_70_7 23
-/Users/ivanbockov/tests_1/gc_250_3 28
-/Users/ivanbockov/tests_1/gc_1000_7 199
-/Users/ivanbockov/tests_1/gc_500_5 73
-/Users/ivanbockov/tests_1/gc_70_1 5
-/Users/ivanbockov/tests_1/gc_1000_9 326
-/Users/ivanbockov/tests_1/gc_250_5 43
-/Users/ivanbockov/tests_1/gc_50_1 6
-/Users/ivanbockov/tests_1/gc_50_9 25
+
+/Users/ivanbockov/tests_1/gc_20_9 11 *
+
+/Users/ivanbockov/tests_1/gc_20_7 8  *
+
+/Users/ivanbockov/tests_1/gc_100_5 20 *
+
+/Users/ivanbockov/tests_1/gc_20_1 3   *
+
+/Users/ivanbockov/tests_1/gc_100_3 13  *
+
+/Users/ivanbockov/tests_1/gc_70_9 31
+
+/Users/ivanbockov/tests_1/gc_1000_1 30
+
+/Users/ivanbockov/tests_1/gc_500_3 43  *
+
+/Users/ivanbockov/tests_1/gc_70_7 22
+
+/Users/ivanbockov/tests_1/gc_250_3 25
+
+/Users/ivanbockov/tests_1/gc_1000_7 193
+
+/Users/ivanbockov/tests_1/gc_500_5 69
+
+/Users/ivanbockov/tests_1/gc_70_1 5  *
+
+/Users/ivanbockov/tests_1/gc_1000_9 316
+
+/Users/ivanbockov/tests_1/gc_250_5 40
+
+/Users/ivanbockov/tests_1/gc_50_1 5 *
+
+/Users/ivanbockov/tests_1/gc_50_9 24  *
+
 /Users/ivanbockov/tests_1/gc_50_7 18
-/Users/ivanbockov/tests_1/gc_100_1 7
-/Users/ivanbockov/tests_1/gc_20_3 5
-/Users/ivanbockov/tests_1/gc_100_7 29
-/Users/ivanbockov/tests_1/gc_100_9 47
-/Users/ivanbockov/tests_1/gc_20_5 8
-/Users/ivanbockov/tests_1/gc_250_7 60
-/Users/ivanbockov/tests_1/gc_250_9 100
-/Users/ivanbockov/tests_1/gc_500_9 175
-/Users/ivanbockov/tests_1/gc_1000_5 127
-/Users/ivanbockov/tests_1/gc_500_7 111
-/Users/ivanbockov/tests_1/gc_70_3 11
-/Users/ivanbockov/tests_1/gc_250_1 12
-/Users/ivanbockov/tests_1/gc_1000_3 76
-/Users/ivanbockov/tests_1/gc_500_1 20
-/Users/ivanbockov/tests_1/gc_70_5 17
+
+/Users/ivanbockov/tests_1/gc_100_1 6  *
+
+/Users/ivanbockov/tests_1/gc_20_3 5   *
+
+/Users/ivanbockov/tests_1/gc_100_7 28
+
+/Users/ivanbockov/tests_1/gc_100_9 44   *
+
+/Users/ivanbockov/tests_1/gc_20_5 7
+
+/Users/ivanbockov/tests_1/gc_250_7 62
+
+/Users/ivanbockov/tests_1/gc_250_9 96
+
+/Users/ivanbockov/tests_1/gc_500_9 174
+
+/Users/ivanbockov/tests_1/gc_1000_5 121  *
+
+/Users/ivanbockov/tests_1/gc_500_7 103
+
+/Users/ivanbockov/tests_1/gc_70_3 10   *
+
+/Users/ivanbockov/tests_1/gc_250_1 11
+
+/Users/ivanbockov/tests_1/gc_1000_3 73
+
+/Users/ivanbockov/tests_1/gc_500_1 18
+
+/Users/ivanbockov/tests_1/gc_70_5 14

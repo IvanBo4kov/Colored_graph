@@ -2,21 +2,25 @@
 #include <vector>
 #include <fstream>
 #include <filesystem>
+#include <algorithm>
 
 using namespace std;
 namespace fs = filesystem;
 
-vector<vector<int>> read_graph(const string& name_file, vector<pair<int, int>>& list_edges) {
+vector<vector<int>> read_graph(const string& name_file, vector<pair<int, int>>& list_edges, vector<int>& edges_counter) {
     ifstream fin;
     fin.open(name_file);
     vector<vector<int>> graph;
     int vertex, edges;
+    vector<pair<int, int>> pairs;
     list_edges.clear();
+    edges_counter.clear();
     if (fin.is_open()) {
-//    while (!fin.eof()) {
         fin >> vertex >> edges;
         vector <int> v(vertex, 0);
         graph.resize(vertex, v);
+        auto zero = make_pair(0, 0);
+        pairs.resize(graph.size(), zero);
         for (int k = 0; k < edges; k++) {
             int start, end;
             fin >> start >> end;
@@ -24,22 +28,31 @@ vector<vector<int>> read_graph(const string& name_file, vector<pair<int, int>>& 
             list_edges.push_back(p1);
             graph[start][end] = 1;
             graph[end][start] = 1;
+            pairs[start].first += 1;
+            pairs[end].first += 1;
+            pairs[start].second = start;
+            pairs[end].second = end;
         }
     } else {
         cout << "file not read" << endl;
     }
-//    }
+    sort(pairs.begin(), pairs.end());
+    for(int i = pairs.size()-1;i >= 0; i--){
+        edges_counter.push_back(pairs[i].second);
+    }
     return graph;
 }
 
-vector<int> solve(vector<vector<int>>& graph) {
+vector<int> solve(vector<vector<int>>& graph, const vector<int>& edges_counter) {
     vector<int> vColors(graph.size(), -1);
-    for (int i = 0; i < graph.size(); i++) {
-        int color = 0;
+    for(auto it : edges_counter) {
+        int i = it;
         vector<bool> colored(graph.size(), false);
-        for (int j = 0; j < i; j++) {
+        for (int j = 0; j < graph.size(); j++) {
             if (graph[i][j] == 1) {
-                colored[vColors[j]] = true;
+                if(vColors[j] > -1){
+                    colored[vColors[j]] = true;
+                }
             }
         }
         for (int k = 0; k < graph.size(); k++) {
@@ -67,9 +80,10 @@ int main () {
     // для каждого файла выполняю тест
     
     for (auto & p : array_path) {
+        vector<int> edges_counter;
         vector<pair<int, int>> edges;
-        vector<vector<int>> graph = read_graph(p.string(), edges);
-        vector<int> colored2 = solve(graph);
+        vector<vector<int>> graph = read_graph(p.string(), edges, edges_counter);
+        vector<int> colored2 = solve(graph, edges_counter);
         int max = -1;
         for (int i = 0; i < colored2.size(); i++) {
             if (colored2[i] > max) {
@@ -81,9 +95,8 @@ int main () {
         for (auto i : colored2) {
             cout << i << " ";
         }
-        cout << endl;
         */
-        /*
+        cout << endl;
         for (auto i : edges) {
             if (colored2[i.first] == colored2[i.second]) {
                 cout << "Error, colored test: " << p.string() << endl;
@@ -91,8 +104,6 @@ int main () {
                 break;
             }
         }
-         */
-         
     }
     return 0;
 }
