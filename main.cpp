@@ -2,43 +2,9 @@
 #include <vector>
 #include <fstream>
 #include <filesystem>
+
 using namespace std;
-
 namespace fs = filesystem;
-
-vector<vector<int>> colored (vector<vector<int>>& graph, vector<bool> visited, int& counter) {
-    for (int i = 0; i < graph.size(); i++) {
-        for (int j = 0; j < i; j++) {
-            if (graph[i][j] == 1) {
-                for (int r = 0; r < visited.size(); r++) {
-                    visited[r] = true;
-                }
-                
-                for (int k = 0; k < graph.size(); k++) {
-                    if (graph[i][k] > 1) {
-                        visited[graph[i][k] - 2] = false;
-                    }
-                    if (graph[j][k] > 1) {
-                        visited[graph[j][k] - 2] = false;
-                    }
-                }
-                
-                int r;
-                for (r = 0; r < visited.size(); r++) {
-                    if (visited[r] == true) {
-                        graph[i][j] = r + 2;
-                        graph[j][i] = r + 2;
-                        if (counter < r + 2) {
-                            counter = r + 2;
-                        }
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    return graph;
-}
 
 vector<vector<int>> read_graph(string name_file) {
     ifstream fin;
@@ -59,11 +25,27 @@ vector<vector<int>> read_graph(string name_file) {
     return graph;
 }
 
+vector<int> solve(vector<vector<int>> graph) {
+    vector<int> vColors(graph.size(), -1);
+    for (int i = 0; i < graph.size(); i++) {
+        int color = 0;
+        for (int j = 0; j < i; j++) {
+            if (graph[i][j] == 1) {
+                if(vColors[j] == color) {
+                    color++;
+                }
+            }
+        }
+        vColors[i] = color;
+    }
+    return vColors;
+}
+
 int main () {
     
     // путь до директории с тестами и забил названия файлов из это директории в вектор
     
-    string path = "/Users/ivanbockov/tests";
+    string path = "/Users/ivanbockov/tests_1";
     auto it = fs::directory_iterator(path);
     vector<fs::path> array_path;
     copy_if(fs::begin(it), fs::end(it), std::back_inserter(array_path),
@@ -75,31 +57,18 @@ int main () {
     
     for (auto & p : array_path) {
         vector<vector<int>> graph = read_graph(p.string());
-        vector<bool> visited(graph.size());
-        vector <int> v2(graph.size(), 0);
-        vector<vector<int>> colored_graph(graph.size(), v2);
-        
-        int counter = 0;
-        colored_graph = colored(graph, visited, counter);
-        /*
-        for (int i = 0; i < graph.size(); i++){
-            for (int j = 0; j < graph.size(); j++){
-                cout << colored_graph[i][j] << " ";
-            }
-            cout << endl;
-        }
-         */
-        cout << counter - 1 << " " << 0 << endl;
-    }
-    
-   /* for (int i = 0; i < graph.size(); i++) {
-        for (int j = 0; j < i; j++) {
-            if (graph[i][j] != 0) {
-                cout << graph[i][j] - 2 << " ";
+        vector<int> colored2 = solve(graph);
+        int max = -1;
+        for (int i = 0; i < colored2.size(); i++) {
+            if (colored2[i] > max) {
+                max = colored2[i];
             }
         }
+        cout << max + 1 << " " << 0 << endl;
+        for (auto i : colored2) {
+            cout << i << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-    */
     return 0;
 }
