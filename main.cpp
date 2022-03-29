@@ -6,7 +6,7 @@
 using namespace std;
 namespace fs = filesystem;
 
-vector<vector<int>> read_graph(string name_file) {
+vector<vector<int>> read_graph(const string& name_file) {
     ifstream fin;
     fin.open(name_file);
     vector<vector<int>> graph;
@@ -25,7 +25,7 @@ vector<vector<int>> read_graph(string name_file) {
     return graph;
 }
 
-vector<int> solve(vector<vector<int>> graph) {
+vector<int> solve(vector<vector<int>>& graph) {
     vector<int> vColors(graph.size(), -1);
     for (int i = 0; i < graph.size(); i++) {
         int color = 0;
@@ -64,11 +64,12 @@ int main () {
                 max = colored2[i];
             }
         }
-        cout << max + 1 << " " << 0 << endl;
-        for (auto i : colored2) {
+        cout << p.string() << " " << max + 1 << endl;
+        //cout << max + 1 << " " << 0 << endl;
+        /*   for (auto i : colored2) {
             cout << i << " ";
         }
-        cout << endl;
+         */
     }
     return 0;
 }
